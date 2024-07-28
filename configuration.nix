@@ -82,18 +82,17 @@
   users.users.nett00n = {
     isNormalUser = true;
     description = "nett00n";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       alacritty
       flameshot
       git
+      hyfetch
       lutris-unwrapped
       neovim
+      nerdfonts
       nixpkgs-fmt
       protonup-qt
-      slack
-      steam
-      telegram-desktop
       thunderbird
       vlc
       vscode
@@ -185,4 +184,7 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  virtualisation.docker.enable = true;
+  services.flatpak.enable = true;
+
 }
