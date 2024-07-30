@@ -79,6 +79,7 @@
       thunderbird
       vlc
       vscode
+      yt-dlp
     ];
   };
 
