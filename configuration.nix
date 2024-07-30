@@ -60,19 +60,29 @@
       cudatoolkit
       docker
       flameshot
+      gh
       git
+      glab
       hyfetch
-      lutris-unwrapped
+      keystore-explorer
+      mc
+      meld
       neovim
       nerdfonts
       nixpkgs-fmt
       nvtopPackages.full
+      obsidian
       python3
       python311Packages.pip
       python311Packages.virtualenv
-      python311Packages.virtualenv
+      slack
       starship
+      steamPackages.steam
+      steamPackages.steam-runtime
+      steamPackages.steamcmd
+      telegram-desktop
       terraform
+      thunderbird
       vlc
       vscode
     ];
@@ -116,6 +126,11 @@
     enableNvidia = true;
   };
 
+  services.ollama = {
+    enable = true;
+    acceleration = "cuda";
+  };
+
   services.flatpak.enable = true;
   fileSystems."/media/Content" = {
     device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
@@ -128,6 +143,14 @@
 
     ];
   };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
   fileSystems."/media/Games" = {
     device = "/dev/disk/by-uuid/9a158d69-fb5f-4f72-abd8-1963eedb1bf4";
     fsType = "xfs";
@@ -142,10 +165,16 @@
 
   fileSystems."/Data" = {
     device = "/home/Data";
-    options = [ "bind" ];
+    options = [
+      "bind"
+      "nofail"
+      ];
   };
   fileSystems."/Stacks" = {
     device = "/home/Stacks";
-    options = [ "bind" ];
+    options = [
+      "bind"
+      "nofail"
+      ];
   };
 }
