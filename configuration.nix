@@ -57,18 +57,12 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       alacritty
-      cudatoolkit
-      docker
       flameshot
       gh
-      git
       glab
       hyfetch
       keystore-explorer
-      mc
       meld
-      neovim
-      nerdfonts
       nixpkgs-fmt
       nvtopPackages.full
       obsidian
@@ -100,8 +94,15 @@
 
   environment.systemPackages = with pkgs ; [
     cudaPackages.autoAddOpenGLRunpathHook
+    cudatoolkit
+    docker
+    git
+    mc
+    neovim
+    nerdfonts
     nixpkgs-fmt
     nvidia-container-toolkit
+    pkgs.firefoxpwa
   ];
 
   system.stateVersion = "24.05";
@@ -131,7 +132,6 @@
     acceleration = "cuda";
   };
 
-  services.flatpak.enable = true;
   fileSystems."/media/Content" = {
     device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
     fsType = "xfs";
@@ -151,6 +151,12 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
+  programs.firefox = {
+    # enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
+
   fileSystems."/media/Games" = {
     device = "/dev/disk/by-uuid/9a158d69-fb5f-4f72-abd8-1963eedb1bf4";
     fsType = "xfs";
@@ -168,13 +174,13 @@
     options = [
       "bind"
       "nofail"
-      ];
+    ];
   };
   fileSystems."/Stacks" = {
     device = "/home/Stacks";
     options = [
       "bind"
       "nofail"
-      ];
+    ];
   };
 }
