@@ -62,13 +62,11 @@
       glab
       hyfetch
       keystore-explorer
+      lutris
       meld
       nixpkgs-fmt
       nvtopPackages.full
       obsidian
-      python3
-      python311Packages.pip
-      python311Packages.virtualenv
       slack
       starship
       steamPackages.steam
@@ -104,6 +102,9 @@
     nixpkgs-fmt
     nvidia-container-toolkit
     pkgs.firefoxpwa
+    python3
+    python311Packages.pip
+    python311Packages.virtualenv
   ];
 
   system.stateVersion = "24.05";
