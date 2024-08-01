@@ -57,6 +57,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       alacritty
+      dbeaver-bin
       flameshot
       gh
       glab
@@ -66,6 +67,7 @@
       lutris
       meld
       nixpkgs-fmt
+      nixfmt-unstable
       nvtopPackages.full
       obsidian
       slack
@@ -79,6 +81,7 @@
       vlc
       vscode
       yt-dlp
+      zoom-us
     ];
   };
 
