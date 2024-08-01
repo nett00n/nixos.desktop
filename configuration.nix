@@ -62,6 +62,7 @@
       glab
       hyfetch
       keystore-explorer
+      libreoffice
       lutris
       meld
       nixpkgs-fmt
