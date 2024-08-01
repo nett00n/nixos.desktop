@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
+  imports = [
 
-      ./hardware-configuration.nix
-    ];
+    ./hardware-configuration.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -66,8 +65,7 @@
       libreoffice
       lutris
       meld
-      nixpkgs-fmt
-      nixfmt-unstable
+      nixfmt-classic
       nvtopPackages.full
       obsidian
       slack
@@ -95,7 +93,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs ; [
+  environment.systemPackages = with pkgs; [
     cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     docker
@@ -112,9 +110,7 @@
   ];
 
   system.stateVersion = "24.05";
-  hardware.opengl = {
-    enable = true;
-  };
+  hardware.opengl = { enable = true; };
 
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.driSupport32Bit = true;
@@ -152,9 +148,12 @@
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall =
+      true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall =
+      true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall =
+      true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
 
   programs.firefox = {
@@ -177,16 +176,10 @@
 
   fileSystems."/Data" = {
     device = "/home/Data";
-    options = [
-      "bind"
-      "nofail"
-    ];
+    options = [ "bind" "nofail" ];
   };
   fileSystems."/Stacks" = {
     device = "/home/Stacks";
-    options = [
-      "bind"
-      "nofail"
-    ];
+    options = [ "bind" "nofail" ];
   };
 }
