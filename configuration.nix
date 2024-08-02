@@ -174,8 +174,28 @@
     ];
   };
 
+  fileSystems."/Books" = {
+    device = "/media/Content/Books/";
+    options = [ "bind" "nofail" ];
+  };
+  fileSystems."/Comics" = {
+    device = "/media/Content/Comics/";
+    options = [ "bind" "nofail" ];
+  };
+  fileSystems."/Courses" = {
+    device = "/media/Content/Videos/Courses/";
+    options = [ "bind" "nofail" ];
+  };
   fileSystems."/Data" = {
     device = "/home/Data";
+    options = [ "bind" "nofail" ];
+  };
+  fileSystems."/Downloads" = {
+    device = "/media/Content/Downloads/";
+    options = [ "bind" "nofail" ];
+  };
+  fileSystems."/Series" = {
+    device = "/media/Content/Videos/Series/";
     options = [ "bind" "nofail" ];
   };
   fileSystems."/Stacks" = {
