@@ -34,6 +34,7 @@
       systemd-boot.enable = true;
       timeout = 3;
     };
+    kernelModules = [ "kvm-amd" "kvm-intel" ];
   };
 
   networking.hostName = "Bulletstorm";
@@ -137,6 +138,7 @@
     python3
     python311Packages.pip
     python311Packages.virtualenv
+    virt-manager
   ];
 
   system.stateVersion = "24.05";
@@ -159,6 +161,7 @@
       enable = true;
       enableNvidia = true;
     };
+    libvirtd = { enable = true; };
   };
 
   services.ollama = {
