@@ -1,18 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot = {
     plymouth = {
       enable = true;
-      theme = "colorful_sliced";
+      theme = "colorful_sliced"; # https://github.com/adi1090x/plymouth-themes
       themePackages = with pkgs;
         [
-          # By default we would install all themes
           (adi1090x-plymouth-themes.override {
             selected_themes = [ "colorful_sliced" ];
           })
@@ -37,46 +33,60 @@
     kernelModules = [ "kvm-amd" "kvm-intel" ];
   };
 
-  networking.hostName = "Bulletstorm";
-
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "Bulletstorm";
+    networkmanager.enable = true;
+  };
 
   time.timeZone = "Asia/Tbilisi";
 
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  services.xserver = {
-    xkb.layout = "us";
-    xkb.variant = "";
+  services = {
+    xserver = {
+      enable = true;
+      displayManager = {
+        gdm.enable = true;
+        autoLogin = {
+          enable = true;
+          user = "nett00n";
+        };
+      };
+      desktopManager.gnome.enable = true;
+      xkb = {
+        layout = "us";
+        variant = "";
+      };
+      videoDrivers = [ "nvidia" ];
+    };
+    printing.enable = true;
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
   };
 
-  services.printing.enable = true;
-
-  hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
+  hardware.pulseaudio.enable = false;
 
   users.users.nett00n = {
     isNormalUser = true;
@@ -114,13 +124,16 @@
     ];
   };
 
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "nett00n";
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
 
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
-
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -143,10 +156,6 @@
 
   system.stateVersion = "24.05";
   hardware.opengl = { enable = true; };
-
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.driSupport32Bit = true;
-
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -161,84 +170,61 @@
       enable = true;
       enableNvidia = true;
     };
-    libvirtd = { enable = true; };
+    libvirtd.enable = true;
   };
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
-
-  fileSystems."/media/Content" = {
-    device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
-    fsType = "xfs";
-    options = [
-      # If you don't have this options attribute, it'll default to "defaults"
-      # boot options for fstab. Search up fstab mount options you can use
-      "defaults"
-      "nofail" # Prevent system from failing if this drive doesn't mount
-
-    ];
+  fileSystems = let
+    contentPath = "/media/Content";
+    gamesPath = "/media/Games";
+  in {
+    "/media/Content" = {
+      device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
+      fsType = "xfs";
+      options = [ "defaults" "nofail" ];
+    };
+    "/media/Games" = {
+      device = "/dev/disk/by-uuid/9a158d69-fb5f-4f72-abd8-1963eedb1bf4";
+      fsType = "xfs";
+      options = [ "defaults" "nofail" ];
+    };
+    "/Books" = {
+      device = "${contentPath}/Books/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Comics" = {
+      device = "${contentPath}/Comics/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Courses" = {
+      device = "${contentPath}/Videos/Courses/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Data" = {
+      device = "/home/Data";
+      options = [ "bind" "nofail" ];
+    };
+    "/Downloads" = {
+      device = "${contentPath}/Downloads/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Games" = {
+      device = "${gamesPath}";
+      options = [ "bind" "nofail" ];
+    };
+    "/Series" = {
+      device = "${contentPath}/Videos/Series/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Stacks" = {
+      device = "/home/Stacks";
+      options = [ "bind" "nofail" ];
+    };
   };
 
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall =
-      true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall =
-      true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall =
-      true; # Open ports in the firewall for Steam Local Network Game Transfers
-  };
-
-  programs.firefox = {
-    # enable = true;
-    package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
-  };
-
-  fileSystems."/media/Games" = {
-    device = "/dev/disk/by-uuid/9a158d69-fb5f-4f72-abd8-1963eedb1bf4";
-    fsType = "xfs";
-    options = [
-      # If you don't have this options attribute, it'll default to "defaults"
-      # boot options for fstab. Search up fstab mount options you can use
-      "defaults"
-      "nofail" # Prevent system from failing if this drive doesn't mount
-
-    ];
-  };
-
-  fileSystems."/Books" = {
-    device = "/media/Content/Books/";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Comics" = {
-    device = "/media/Content/Comics/";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Courses" = {
-    device = "/media/Content/Videos/Courses/";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Data" = {
-    device = "/home/Data";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Downloads" = {
-    device = "/media/Content/Downloads/";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Games" = {
-    device = "/media/Games";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Series" = {
-    device = "/media/Content/Videos/Series/";
-    options = [ "bind" "nofail" ];
-  };
-  fileSystems."/Stacks" = {
-    device = "/home/Stacks";
-    options = [ "bind" "nofail" ];
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 }
