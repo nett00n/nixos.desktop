@@ -61,8 +61,10 @@
       gh
       glab
       hyfetch
+      imagemagick
       keystore-explorer
       libreoffice
+      libwebp
       lutris
       meld
       nixfmt-classic
@@ -79,6 +81,7 @@
       vlc
       vscode
       yt-dlp
+      zed-editor
       zoom-us
     ];
   };
@@ -192,6 +195,10 @@
   };
   fileSystems."/Downloads" = {
     device = "/media/Content/Downloads/";
+    options = [ "bind" "nofail" ];
+  };
+  fileSystems."/Games" = {
+    device = "/media/Games";
     options = [ "bind" "nofail" ];
   };
   fileSystems."/Series" = {
