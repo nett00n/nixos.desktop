@@ -4,16 +4,6 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot = {
-    plymouth = {
-      enable = true;
-      theme = "colorful_sliced"; # https://github.com/adi1090x/plymouth-themes
-      themePackages = with pkgs;
-        [
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "colorful_sliced" ];
-          })
-        ];
-    };
     consoleLogLevel = 0;
     initrd.verbose = false;
     kernelParams = [
@@ -130,6 +120,10 @@
     "getty@tty1".enable = false;
     "autovt@tty1".enable = false;
   };
+
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 
   programs.firefox = {
     enable = true;
