@@ -4,30 +4,29 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" ];
+  boot.initrd.availableKernelModules =
+    [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a30748c8-2a29-4bc4-bfd7-e131fc156c54";
-      fsType = "xfs";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/a30748c8-2a29-4bc4-bfd7-e131fc156c54";
+    fsType = "xfs";
+  };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/E438-CAA4";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/E438-CAA4";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
 
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/372476f5-321a-49f6-a790-c3b3d326ae9c";
-      fsType = "xfs";
-    };
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/372476f5-321a-49f6-a790-c3b3d326ae9c";
+    fsType = "xfs";
+  };
 
   swapDevices = [ ];
 
@@ -39,7 +38,9 @@
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+  hardware.cpu.amd.updateMicrocode =
+    lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.nvidia.package =
+    config.boot.kernelPackages.nvidiaPackages.production;
 
 }
