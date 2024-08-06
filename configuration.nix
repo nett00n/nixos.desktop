@@ -108,12 +108,14 @@
       nixfmt-classic
       nvtopPackages.full
       obsidian
+      protontricks
+      protonup-qt
       slack
       starship
       steamPackages.steam
       steamPackages.steam-runtime
       steamPackages.steamcmd
-      telegram-desktop
+      tdesktop
       terraform
       thunderbird
       vlc
