@@ -3,16 +3,17 @@
 {
   imports = [
     ./boot.nix
-    ./mounts.nix
-    ./virtualisation.nix
-    ./nvidia.nix
-    ./locale.nix
     ./fonts.nix
+    ./hardware-configuration.nix
+    ./locale.nix
+    ./mounts.nix
+    ./nvidia.nix
+    ./ollama.nix
+    ./packages.nix
+    ./programs.nix
     ./sound.nix
     ./users.nix
-    ./packages.nix
-    ./ollama.nix
-    ./programs.nix
+    ./virtualisation.nix
   ];
 
   system.stateVersion = "24.05";

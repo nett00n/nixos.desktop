@@ -29,6 +29,7 @@
       tdesktop
       terraform
       thunderbird
+      tmux
       vlc
       vscode
       yt-dlp
