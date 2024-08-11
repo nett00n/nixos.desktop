@@ -13,6 +13,7 @@
     nmap
     nvidia-container-toolkit
     pkgs.firefoxpwa
+    pwgen
     python3
     python311Packages.pip
     python311Packages.virtualenv
