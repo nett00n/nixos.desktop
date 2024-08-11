@@ -5,6 +5,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       alacritty
+      awscli2
       dbeaver-bin
       flameshot
       gh
