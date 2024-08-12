@@ -20,4 +20,38 @@
     virt-manager
     whois
   ];
+  users.users.nett00n.packages = with pkgs; [
+      alacritty
+      awscli2
+      dbeaver-bin
+      flameshot
+      gh
+      glab
+      hyfetch
+      imagemagick
+      keystore-explorer
+      libreoffice
+      libwebp
+      lutris
+      meld
+      nixfmt-classic
+      nvtopPackages.full
+      obsidian
+      protontricks
+      protonup-qt
+      slack
+      starship
+      steamPackages.steam
+      steamPackages.steam-runtime
+      steamPackages.steamcmd
+      tdesktop
+      terraform
+      thunderbird
+      tmux
+      vlc
+      vscode
+      yt-dlp
+      zed-editor
+      zoom-us
+  ];
 }
