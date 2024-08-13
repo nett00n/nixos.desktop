@@ -9,7 +9,6 @@
     ./mounts.nix
     ./nvidia.nix
     ./ollama.nix
-    ./packages.nix
     ./programs.nix
     ./sound.nix
     ./users.nix
@@ -45,6 +44,8 @@
     "autovt@tty1".enable = false;
   };
 
+  # This reduces graceful kill period for processes on shutdown
+  # Speeds up shutdown and reboot
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
