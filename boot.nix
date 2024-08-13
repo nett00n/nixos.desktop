@@ -18,4 +18,13 @@
     };
     kernelModules = [ "kvm-amd" "kvm-intel" ];
   };
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
+  # This reduces graceful kill period for processes on shutdown
+  # Speeds up shutdown and reboot
+  systemd.extraConfig = ''
+    DefaultTimeoutStopSec=10s
+  '';
 }

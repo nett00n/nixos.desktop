@@ -1,6 +1,15 @@
 { config, pkgs, ... }:
 
 {
+  system.stateVersion = "24.05";
+
+  networking = {
+    hostName = "Bulletstorm";
+    networkmanager.enable = true;
+  };
+
+  time.timeZone = "Asia/Tbilisi";
+
   imports = [
     ./boot.nix
     ./fonts.nix
@@ -13,42 +22,6 @@
     ./sound.nix
     ./users.nix
     ./virtualisation.nix
+    ./X11.nix
   ];
-
-  system.stateVersion = "24.05";
-  system.copySystemConfiguration = true;
-
-  networking = {
-    hostName = "Bulletstorm";
-    networkmanager.enable = true;
-  };
-
-  time.timeZone = "Asia/Tbilisi";
-
-  services = {
-    xserver = {
-      enable = true;
-      displayManager = { gdm.enable = true; };
-      desktopManager.gnome.enable = true;
-      xkb = {
-        layout = "us";
-        variant = "";
-      };
-      videoDrivers = [ "nvidia" ];
-    };
-    printing.enable = true;
-  };
-
-  systemd.services = {
-    "getty@tty1".enable = false;
-    "autovt@tty1".enable = false;
-  };
-
-  # This reduces graceful kill period for processes on shutdown
-  # Speeds up shutdown and reboot
-  systemd.extraConfig = ''
-    DefaultTimeoutStopSec=10s
-  '';
-
-  hardware.opengl = { enable = true; };
 }
