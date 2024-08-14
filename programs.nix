@@ -13,6 +13,8 @@
   };
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    audacious
+    audacious-plugins
     cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     dig
@@ -20,7 +22,9 @@
     git
     gparted
     mc
+    ncdu
     neovim
+    nix-ld
     nixpkgs-fmt
     nmap
     nvidia-container-toolkit
@@ -31,10 +35,7 @@
     python311Packages.virtualenv
     virt-manager
     whois
-    ncdu
-    nix-ld
-    fuse
-    glib
+    pkgs.gnome3.gnome-tweaks
   ];
   users.users.nett00n.packages = with pkgs; [
     alacritty
@@ -53,9 +54,12 @@
     nixfmt-classic
     nvtopPackages.full
     obsidian
+    ocs-url
     protontricks
     protonup-qt
+    sassc
     slack
+    spotdl
     starship
     steamPackages.steam
     steamPackages.steam-runtime
@@ -66,6 +70,7 @@
     tmux
     vlc
     vscode
+    xsel
     yt-dlp
     zed-editor
     zoom-us
