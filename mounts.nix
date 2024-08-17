@@ -26,6 +26,10 @@
       device = "${contentPath}/Videos/Courses/";
       options = [ "bind" "nofail" ];
     };
+    "/Cinema" = {
+      device = "${contentPath}/Videos/Cinema/";
+      options = [ "bind" "nofail" ];
+    };
     "/Data" = {
       device = "/home/Data";
       options = [ "bind" "nofail" ];
@@ -36,6 +40,10 @@
     };
     "/Games" = {
       device = "${gamesPath}";
+      options = [ "bind" "nofail" ];
+    };
+    "/Music" = {
+      device = "${contentPath}/Music/";
       options = [ "bind" "nofail" ];
     };
     "/Series" = {

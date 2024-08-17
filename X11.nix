@@ -8,7 +8,7 @@
         layout = "us";
         variant = "";
       };
-      
+
     };
     printing.enable = true;
   };

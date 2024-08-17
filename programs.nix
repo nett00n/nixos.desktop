@@ -38,6 +38,7 @@
     pkgs.gnome3.gnome-tweaks
   ];
   users.users.nett00n.packages = with pkgs; [
+    act
     alacritty
     awscli2
     dbeaver-bin
@@ -76,7 +77,5 @@
     zoom-us
   ];
   # Exclude packages
-  environment.gnome.excludePackages = (with pkgs;
-    [
-    ]);
+  environment.gnome.excludePackages = (with pkgs; [ ]);
 }
