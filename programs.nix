@@ -36,6 +36,8 @@
     virt-manager
     whois
     pkgs.gnome3.gnome-tweaks
+    zip
+    unzip
   ];
   users.users.nett00n.packages = with pkgs; [
     act
