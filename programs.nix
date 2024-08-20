@@ -1,4 +1,5 @@
 { config, pkgs, ... }: {
+  services.flatpak.enable = true;
   programs.nix-ld.enable = true;
   programs.firefox = {
     enable = true;
@@ -13,13 +14,13 @@
   };
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    audacious
-    audacious-plugins
     cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     dig
     docker
+    flatpak
     git
+    gnome.gnome-software
     gparted
     mc
     ncdu
@@ -29,26 +30,29 @@
     nmap
     nvidia-container-toolkit
     pkgs.firefoxpwa
+    pkgs.gnome3.gnome-tweaks
     pwgen
     python3
     python311Packages.pip
     python311Packages.virtualenv
+    unzip
     virt-manager
     whois
-    pkgs.gnome3.gnome-tweaks
     zip
-    unzip
   ];
   users.users.nett00n.packages = with pkgs; [
     act
     alacritty
+    amberol
     awscli2
     dbeaver-bin
     flameshot
     gh
     glab
+    go
     hyfetch
     imagemagick
+    junction
     keystore-explorer
     libreoffice
     libwebp
