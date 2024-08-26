@@ -2,7 +2,13 @@
   users.users.nett00n = {
     isNormalUser = true;
     description = "nett00n";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "docker"
+      "kvm"
+      "networkmanager"
+      "nix-users"
+      "wheel"
+      ];
   };
   services.xserver.displayManager.autoLogin = {
     enable = true;

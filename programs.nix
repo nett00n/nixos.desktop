@@ -1,19 +1,33 @@
 { config, pkgs, ... }: {
   services.flatpak.enable = true;
   programs.nix-ld.enable = true;
+
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
     nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+
+  # Turn on appimage support
+  boot.binfmt.registrations.appimage = {
+    wrapInterpreterInShell = false;
+    interpreter = "${pkgs.appimage-run}/bin/appimage-run";
+    recognitionType = "magic";
+    offset = 0;
+    mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
+    magicOrExtension = ''\x7fELF....AI\x02'';
+  };
+
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    appimage-run
     cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     dig
@@ -25,6 +39,7 @@
     mc
     ncdu
     neovim
+    nix-index
     nix-ld
     nixpkgs-fmt
     nmap
@@ -62,8 +77,6 @@
     nvtopPackages.full
     obsidian
     ocs-url
-    protontricks
-    protonup-qt
     sassc
     slack
     spotdl
