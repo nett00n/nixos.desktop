@@ -104,6 +104,6 @@
     gnome.gnome-backgrounds
     gnome.gnome-maps
     gnome.gnome-music
-    ];
+  ];
 
 }
