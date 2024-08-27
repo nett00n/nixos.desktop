@@ -4,7 +4,7 @@
   system.stateVersion = "24.05";
 
   networking = {
-    hostName = "Bulletstorm";
+    hostName = "bulletstorm";
     networkmanager.enable = true;
   };
 

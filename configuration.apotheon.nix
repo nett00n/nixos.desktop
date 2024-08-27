@@ -4,7 +4,7 @@
   system.stateVersion = "24.05";
 
   networking = {
-    hostName = "Apotheon";
+    hostName = "apotheon";
     networkmanager.enable = true;
   };
 
