@@ -8,4 +8,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
+  virtualisation.podman.enableNvidia = true;
+  virtualisation.docker.enableNvidia = true;
 }

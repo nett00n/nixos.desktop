@@ -1,3 +1,5 @@
 .*
-result
 !.gitignore
+configuration.nix
+hardware-configuration.nix
+result

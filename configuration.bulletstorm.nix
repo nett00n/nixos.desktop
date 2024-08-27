@@ -9,7 +9,10 @@
   };
 
   time.timeZone = "Asia/Tbilisi";
-
+  services.openssh.enable = true;
+  services.openssh.settings.AllowGroups = [
+    "ssh-users"
+  ];
   imports = [
     ./boot.nix
     ./fonts.nix

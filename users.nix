@@ -6,7 +6,7 @@
       "docker"
       "kvm"
       "networkmanager"
-      "nix-users"
+      "ssh-users"
       "wheel"
       ];
   };
