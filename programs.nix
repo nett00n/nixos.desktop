@@ -96,5 +96,14 @@
     zoom-us
   ];
   # Exclude packages
-  environment.gnome.excludePackages = (with pkgs; [ ]);
+  environment.gnome.excludePackages = with pkgs; [
+    epiphany
+    gnome-console
+    gnome-tour
+    gnome.geary
+    gnome.gnome-backgrounds
+    gnome.gnome-maps
+    gnome.gnome-music
+    ];
+
 }
