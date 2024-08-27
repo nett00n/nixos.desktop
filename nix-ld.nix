@@ -9,7 +9,7 @@
     alsa-lib
     appimage-run
     at-spi2-atk
-    at-spi2-core   # CrossCode
+    at-spi2-core # CrossCode
     atk
     atkmm
     bzip2
@@ -99,6 +99,9 @@
     pango
     pipewire
     pixman
+    python3
+    python311Packages.pip
+    python311Packages.virtualenv
     rtmpdump
     SDL
     SDL_image

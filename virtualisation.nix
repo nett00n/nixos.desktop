@@ -1,8 +1,6 @@
 {
   virtualisation = {
-    docker = {
-      enable = true;
-    };
+    docker = { enable = true; };
     libvirtd.enable = true;
   };
 }
