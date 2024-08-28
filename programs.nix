@@ -2,12 +2,6 @@
   services.flatpak.enable = true;
   programs.nix-ld.enable = true;
 
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -32,6 +26,7 @@
     cudatoolkit
     dig
     docker
+    firefox-bin
     flatpak
     git
     gnome.gnome-software
@@ -44,7 +39,6 @@
     nixpkgs-fmt
     nmap
     nvidia-container-toolkit
-    pkgs.firefoxpwa
     pkgs.gnome3.gnome-tweaks
     pwgen
     python3
@@ -58,7 +52,6 @@
   users.users.nett00n.packages = with pkgs; [
     act
     alacritty
-    amberol
     awscli2
     dbeaver-bin
     flameshot
@@ -71,7 +64,6 @@
     keystore-explorer
     libreoffice
     libwebp
-    lutris
     meld
     nixfmt-classic
     nvtopPackages.full
@@ -91,8 +83,9 @@
     vlc
     vscode
     xsel
+    yamlfmt
+    yamllint
     yt-dlp
-    zed-editor
     zoom-us
   ];
   # Exclude packages
