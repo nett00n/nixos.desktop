@@ -2,13 +2,6 @@
   services.flatpak.enable = true;
   programs.nix-ld.enable = true;
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
-
   # Turn on appimage support
   boot.binfmt.registrations.appimage = {
     wrapInterpreterInShell = false;
@@ -54,6 +47,7 @@
     alacritty
     awscli2
     dbeaver-bin
+    faba-mono-icons
     flameshot
     gh
     glab
@@ -69,13 +63,11 @@
     nvtopPackages.full
     obsidian
     ocs-url
+    rose-pine-cursor
     sassc
     slack
     spotdl
     starship
-    steamPackages.steam
-    steamPackages.steam-runtime
-    steamPackages.steamcmd
     tdesktop
     terraform
     thunderbird

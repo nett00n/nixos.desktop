@@ -10,4 +10,5 @@
   services.xserver.videoDrivers = [ "nvidia" ];
   virtualisation.podman.enableNvidia = true;
   virtualisation.docker.enableNvidia = true;
+  hardware.opengl.driSupport32Bit = true;
 }

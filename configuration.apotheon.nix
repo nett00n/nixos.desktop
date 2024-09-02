@@ -15,7 +15,7 @@
     ./hardware-configuration.nix
     ./locale.nix
     ./mounts.nix
-    ./nix-ld.nix
+    # ./nix-ld.nix
     ./ollama.nix
     ./programs.nix
     ./sound.nix
