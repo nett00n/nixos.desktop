@@ -14,7 +14,7 @@
     ./fonts.nix
     ./hardware-configuration.nix
     ./locale.nix
-    ./mounts.nix
+    # ./mounts.nix
     # ./nix-ld.nix
     ./ollama.nix
     ./programs.nix
