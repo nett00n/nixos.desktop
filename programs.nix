@@ -21,6 +21,7 @@
     docker
     firefox-bin
     flatpak
+    xdg-desktop-portal-gtk
     git
     gnome.gnome-software
     gparted

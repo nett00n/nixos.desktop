@@ -1,1 +1,4 @@
-{ config, pkgs, ... }: { fonts.packages = with pkgs; [ nerdfonts ]; }
+{ config, pkgs, ... }: { fonts.packages = with pkgs; [
+  fira-code-nerdfont
+  ubuntu_font_family
+  ]; }
