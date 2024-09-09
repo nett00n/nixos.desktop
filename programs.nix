@@ -71,6 +71,7 @@
     starship
     tdesktop
     terraform
+    tflint
     thunderbird
     tmux
     vlc
