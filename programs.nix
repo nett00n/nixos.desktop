@@ -32,6 +32,7 @@
     nixpkgs-fmt
     nmap
     nvidia-container-toolkit
+    pciutils
     pkgs.gnome3.gnome-tweaks
     pwgen
     python3

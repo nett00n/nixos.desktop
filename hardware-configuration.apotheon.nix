@@ -14,6 +14,21 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [
+    "i915.modeset=1" # Enable kernel mode setting
+    "i915.enable_guc=2" # Enable GuC submission
+    "i915.enable_gvt=1" # Enable GVT-g (Graphics Virtualization Technology)
+    "i915.enable_psr=1" # Enable Panel Self Refresh
+    "i915.fastboot=1" # Enable fast boot
+    "i915.enable_fbc=1" # Enable Frame Buffer Compression
+  ];
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs;
+      [
+        intel-media-sdk # For older GPUs
+      ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c74cb2fd-fa58-4483-9d6a-e5431cfb2fd6";
