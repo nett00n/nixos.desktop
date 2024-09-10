@@ -44,4 +44,5 @@
     config.boot.kernelPackages.nvidiaPackages.production;
 
   hardware.opengl = { enable = true; };
+  hardware.enableAllFirmware = true;
 }
