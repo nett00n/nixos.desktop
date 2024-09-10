@@ -21,7 +21,6 @@
     docker
     firefox-bin
     flatpak
-    xdg-desktop-portal-gtk
     git
     gnome.gnome-software
     gparted
@@ -39,8 +38,10 @@
     python311Packages.pip
     python311Packages.virtualenv
     unzip
+    usbutils
     virt-manager
     whois
+    xdg-desktop-portal-gtk
     zip
   ];
   users.users.nett00n.packages = with pkgs; [
