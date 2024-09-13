@@ -30,7 +30,6 @@
       ];
   };
 
-  hardware.enableAllFirmware = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c74cb2fd-fa58-4483-9d6a-e5431cfb2fd6";
@@ -60,4 +59,13 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode =
     lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  # Make macbook keyboard usable: ctrl, fn, super, alt and fn buttons work like fn, not media
+  boot.extraModprobeConfig = ''
+    options hid_apple fnmode=2
+    options hid_apple swap_opt_cmd=1
+    options hid_apple swap_fn_leftctrl=1
+  '';
+  # enable macbook webcams
+  hardware.facetimehd.enable = true;
 }

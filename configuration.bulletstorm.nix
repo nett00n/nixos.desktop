@@ -1,16 +1,11 @@
 { config, pkgs, ... }:
 
 {
-  system.stateVersion = "24.05";
 
-  networking = {
-    hostName = "bulletstorm";
-    networkmanager.enable = true;
-  };
-
-  time.timeZone = "Asia/Tbilisi";
+  networking.hostName = "bulletstorm";
   imports = [
     ./boot.nix
+    ./common.nix
     ./fonts.nix
     ./hardware-configuration.nix
     ./locale.nix
