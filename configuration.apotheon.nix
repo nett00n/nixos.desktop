@@ -17,7 +17,7 @@
     ./programs.nix
     ./sound.nix
     ./ssh.nix
-    ./users.nix
+    ./users/nett00n.nix
     ./virtualisation.nix
     ./X11.nix
   ];

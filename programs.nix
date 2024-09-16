@@ -83,6 +83,7 @@
     yamllint
     yt-dlp
     zoom-us
+    mangohud
   ];
   # Exclude packages
   environment.gnome.excludePackages = with pkgs; [
