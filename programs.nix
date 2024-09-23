@@ -42,6 +42,7 @@
     usbutils
     virt-manager
     whois
+    xclip
     xdg-desktop-portal-gtk
     zip
   ];
