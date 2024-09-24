@@ -60,8 +60,10 @@
     imagemagick
     junction
     keystore-explorer
+    ksnip
     libreoffice
     libwebp
+    mangohud
     meld
     nixfmt-classic
     nvtopPackages.full
@@ -84,7 +86,6 @@
     yamllint
     yt-dlp
     zoom-us
-    mangohud
   ];
   # Exclude packages
   environment.gnome.excludePackages = with pkgs; [
