@@ -51,8 +51,6 @@
     alacritty
     awscli2
     dbeaver-bin
-    faba-mono-icons
-    flameshot
     gh
     glab
     go
@@ -63,13 +61,11 @@
     ksnip
     libreoffice
     libwebp
-    mangohud
     meld
     nixfmt-classic
     nvtopPackages.full
     obsidian
     ocs-url
-    rose-pine-cursor
     sassc
     slack
     spotdl
