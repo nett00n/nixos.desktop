@@ -10,8 +10,9 @@
     [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "uas" "sd_mod" ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
-
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    rtl8821au
+  ];
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/a30748c8-2a29-4bc4-bfd7-e131fc156c54";
     fsType = "xfs";
