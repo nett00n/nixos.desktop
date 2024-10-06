@@ -1,7 +1,8 @@
-{
+{ config, pkgs, ... }: {
   users.users.alice = {
     isNormalUser = true;
-    createHome = true;
-    password = "123";
+    description = "alice";
+    extraGroups = [ "networkmanager" ];
+    uid = 10001;
   };
 }
