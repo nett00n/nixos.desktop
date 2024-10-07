@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+# programs.nix
+
+{ pkgs, ... }: {
   services.flatpak.enable = true;
   programs.nix-ld.enable = true;
 
@@ -15,7 +17,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     appimage-run
-    # cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     dig
     docker

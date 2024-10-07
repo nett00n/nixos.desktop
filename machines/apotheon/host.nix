@@ -1,3 +1,5 @@
+# host.nix
+
 { config, lib, pkgs, ... }:
 
 {

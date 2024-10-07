@@ -1,3 +1,5 @@
+# mounts.nix
+
 {
   fileSystems."/Stacks" = {
     device = "/home/Stacks";

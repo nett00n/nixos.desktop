@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+# nvidia.nix
+
+{
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;

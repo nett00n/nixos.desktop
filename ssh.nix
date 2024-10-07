@@ -1,3 +1,5 @@
+# ssh.nix
+
 {
   services.openssh.enable = true;
   services.openssh.settings.AllowGroups = [ "wheel" ];

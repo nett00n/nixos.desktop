@@ -1,3 +1,5 @@
+# sound.nix
+
 {
   hardware.pulseaudio.enable = false;
   services.pipewire = {

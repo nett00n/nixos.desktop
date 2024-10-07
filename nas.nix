@@ -1,54 +1,53 @@
-{
+# nas.nix
 
-  fileSystems =
-    let
-      contentPath = "/media/Content";
-      gamesPath = "/media/Games";
-    in
-    {
-      "/media/Content" = {
-        device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
-        fsType = "xfs";
-        options = [ "defaults" "nofail" ];
-      };
-      "/media/Games" = {
-        device = "/dev/mapper/vg0-games";
-        fsType = "xfs";
-        options = [ "defaults" "nofail" ];
-      };
-      "/Books" = {
-        device = "${contentPath}/Books/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Comics" = {
-        device = "${contentPath}/Comics/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Courses" = {
-        device = "${contentPath}/Videos/Courses/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Cinema" = {
-        device = "${contentPath}/Videos/Cinema/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Downloads" = {
-        device = "${contentPath}/Downloads/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Games" = {
-        device = "${gamesPath}";
-        options = [ "bind" "nofail" ];
-      };
-      "/Music" = {
-        device = "${contentPath}/Music/";
-        options = [ "bind" "nofail" ];
-      };
-      "/Series" = {
-        device = "${contentPath}/Videos/Series/";
-        options = [ "bind" "nofail" ];
-      };
+{
+  fileSystems = let
+    contentPath = "/media/Content";
+    gamesPath = "/media/Games";
+  in {
+    "/media/Content" = {
+      device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
+      fsType = "xfs";
+      options = [ "defaults" "nofail" ];
     };
+    "/media/Games" = {
+      device = "/dev/mapper/vg0-games";
+      fsType = "xfs";
+      options = [ "defaults" "nofail" ];
+    };
+    "/Books" = {
+      device = "${contentPath}/Books/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Comics" = {
+      device = "${contentPath}/Comics/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Courses" = {
+      device = "${contentPath}/Videos/Courses/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Cinema" = {
+      device = "${contentPath}/Videos/Cinema/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Downloads" = {
+      device = "${contentPath}/Downloads/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Games" = {
+      device = "${gamesPath}";
+      options = [ "bind" "nofail" ];
+    };
+    "/Music" = {
+      device = "${contentPath}/Music/";
+      options = [ "bind" "nofail" ];
+    };
+    "/Series" = {
+      device = "${contentPath}/Videos/Series/";
+      options = [ "bind" "nofail" ];
+    };
+  };
 
   services.samba = {
     enable = true;

@@ -1,4 +1,5 @@
-{ config, pkgs, ... }:
+# boot.nix
+
 {
   boot = {
     consoleLogLevel = 0;

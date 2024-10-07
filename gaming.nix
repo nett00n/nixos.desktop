@@ -1,4 +1,6 @@
-{ config, pkgs, ... }: {
+# gaming.nix
+
+{
   programs.steam = {
     enable = true;
     remotePlay.openFirewall =
@@ -10,10 +12,6 @@
   };
   programs.steam.gamescopeSession.enable = true;
   programs.java.enable = true;
-  environment.systemPackages = with pkgs; [
-    lutris
-    mangohud
-    protonup-qt
-  ];
+  environment.systemPackages = with pkgs; [ lutris mangohud protonup-qt ];
   programs.gamemode.enable = true;
 }

@@ -1,3 +1,5 @@
+# alice.nix
+
 { config, pkgs, ... }: {
   users.users.alice = {
     isNormalUser = true;
