@@ -7,32 +7,32 @@
   };
 
   users.users.nett00n.packages = with pkgs; [
-    nmap
-    gnome-tweaks
-    pwgen
-    python3
-    python311Packages.pip
-    python311Packages.virtualenv
-    whois
     act
     alacritty
     awscli2
     dbeaver-bin
+    dmidecode
+    eza
     gh
     glab
+    gnome-tweaks
     go
     hyfetch
     imagemagick
     junction
     keystore-explorer
+    kitty
     ksnip
     libreoffice
     libwebp
     meld
     nixfmt-classic
+    nmap
     nvtopPackages.full
     obsidian
     ocs-url
+    pwgen
+    python311Packages.virtualenv
     sassc
     slack
     spotdl
@@ -43,16 +43,15 @@
     thunderbird
     tmux
     viddy
+    viddy
     vlc
     vscode
+    whois
     xsel
     yamlfmt
     yamllint
     yt-dlp
     zoom-us
     zoxide
-    viddy
-    eza
-    kitty
   ];
 }

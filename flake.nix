@@ -58,6 +58,7 @@
           ./virtualisation.nix
           ./X11.nix
         ];
+      };
       nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
@@ -77,5 +78,5 @@
           ./X11.nix
         ];
       };
-    };
+};
 }
