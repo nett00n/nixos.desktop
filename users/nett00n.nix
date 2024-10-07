@@ -53,5 +53,6 @@
     yt-dlp
     zoom-us
     zoxide
+    yazi
   ];
 }

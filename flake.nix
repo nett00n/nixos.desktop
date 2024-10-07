@@ -14,7 +14,6 @@
       nixosConfigurations.reka = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          disko.nixosModules.disko
           ./boot.nix
           ./configuration.nix
           ./fonts.nix
@@ -33,12 +32,12 @@
           ./users/wildetahorg.nix
           ./virtualisation.nix
           ./X11.nix
+          disko.nixosModules.disko
         ];
       };
       nixosConfigurations.bulletstorm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          disko.nixosModules.disko
           ./boot.nix
           ./configuration.nix
           ./fonts.nix
@@ -57,12 +56,12 @@
           ./users/wildetahorg.nix
           ./virtualisation.nix
           ./X11.nix
+          disko.nixosModules.disko
         ];
       };
       nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          disko.nixosModules.disko
           ./boot.nix
           ./configuration.nix
           ./fonts.nix
@@ -73,9 +72,11 @@
           ./programs.nix
           ./sound.nix
           ./ssh.nix
+          ./touchpad.nix
           ./users/nett00n.nix
           ./virtualisation.nix
           ./X11.nix
+          disko.nixosModules.disko
         ];
       };
 };
