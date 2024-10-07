@@ -12,6 +12,8 @@
       modules = [
         ./boot.nix
         ./configuration.nix
+        ./docker-directories-create.nix
+        ./docker.nix
         ./fonts.nix
         ./gaming.nix
         ./locale.nix
@@ -21,12 +23,12 @@
         ./ollama.nix
         ./prevent-sleep.nix
         ./programs.nix
+        ./qemu.nix
         ./sound.nix
         ./ssh.nix
         ./users/asyavee.nix
         ./users/nett00n.nix
         ./users/wildetahorg.nix
-        ./virtualisation.nix
         ./X11.nix
         disko.nixosModules.disko
       ];
@@ -36,6 +38,8 @@
       modules = [
         ./boot.nix
         ./configuration.nix
+        ./docker-directories-create.nix
+        ./docker.nix
         ./fonts.nix
         ./gaming.nix
         ./locale.nix
@@ -45,12 +49,12 @@
         ./nvidia.nix
         ./ollama.nix
         ./programs.nix
+        ./qemu.nix
         ./sound.nix
         ./ssh.nix
         ./users/asyavee.nix
         ./users/nett00n.nix
         ./users/wildetahorg.nix
-        ./virtualisation.nix
         ./X11.nix
         disko.nixosModules.disko
       ];
@@ -60,17 +64,19 @@
       modules = [
         ./boot.nix
         ./configuration.nix
+        ./docker-directories-create.nix
+        ./docker.nix
         ./fonts.nix
         ./locale.nix
         ./machines/apotheon/hardware-configuration.nix
         ./machines/apotheon/host.nix
         ./ollama.nix
         ./programs.nix
+        ./qemu.nix
         ./sound.nix
         ./ssh.nix
         ./touchpad.nix
         ./users/nett00n.nix
-        ./virtualisation.nix
         ./X11.nix
         disko.nixosModules.disko
       ];
