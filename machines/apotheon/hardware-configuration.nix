@@ -22,8 +22,8 @@
     "i915.fastboot=1" # Enable fast boot
     "i915.enable_fbc=1" # Enable Frame Buffer Compression
   ];
+  hardware.graphics.enable = true;
   hardware.opengl = {
-    enable = true;
     extraPackages = with pkgs;
       [
         intel-media-sdk # For older GPUs

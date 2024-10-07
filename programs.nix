@@ -15,14 +15,14 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     appimage-run
-    cudaPackages.autoAddOpenGLRunpathHook
+    # cudaPackages.autoAddOpenGLRunpathHook
     cudatoolkit
     dig
     docker
     firefox-bin
     flatpak
     git
-    gnome.gnome-software
+    gnome-software
     gparted
     mc
     ncdu
@@ -30,68 +30,24 @@
     nix-index
     nix-ld
     nixpkgs-fmt
-    nmap
     nvidia-container-toolkit
     pciutils
-    pkgs.gnome3.gnome-tweaks
-    pwgen
-    python3
-    python311Packages.pip
-    python311Packages.virtualenv
     unzip
     usbutils
     virt-manager
-    whois
     xclip
     xdg-desktop-portal-gtk
     zip
-  ];
-  users.users.nett00n.packages = with pkgs; [
-    act
-    alacritty
-    awscli2
-    dbeaver-bin
-    gh
-    glab
-    go
-    hyfetch
-    imagemagick
-    junction
-    keystore-explorer
-    ksnip
-    libreoffice
-    libwebp
-    meld
-    nixfmt-classic
-    nvtopPackages.full
-    obsidian
-    ocs-url
-    sassc
-    slack
-    spotdl
-    starship
-    tdesktop
-    terraform
-    tflint
-    thunderbird
-    tmux
-    vlc
-    vscode
-    xsel
-    yamlfmt
-    yamllint
-    yt-dlp
-    zoom-us
   ];
   # Exclude packages
   environment.gnome.excludePackages = with pkgs; [
     epiphany
     gnome-console
     gnome-tour
-    gnome.geary
-    gnome.gnome-backgrounds
-    gnome.gnome-maps
-    gnome.gnome-music
+    geary
+    gnome-backgrounds
+    gnome-maps
+    gnome-music
   ];
 
 }
