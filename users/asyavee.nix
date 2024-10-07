@@ -1,6 +1,7 @@
 # asyavee.nix
 
 { config, pkgs, ... }: {
+  programs.fish.enable = true;
   users.users.asyavee = {
     isNormalUser = true;
     description = "asyavee";
@@ -10,5 +11,8 @@
       [ "docker" "kvm" "networkmanager" "ssh-users" "wheel" "gamemode" "sudo" ];
     uid = 1003;
   };
-  users.users.asyavee.packages = with pkgs; [ fish ];
+  users.users.asyavee.packages = with pkgs;
+    [
+      # postman
+    ];
 }
