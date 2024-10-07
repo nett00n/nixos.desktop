@@ -58,6 +58,24 @@
           ./virtualisation.nix
           ./X11.nix
         ];
+      nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          disko.nixosModules.disko
+          ./boot.nix
+          ./configuration.nix
+          ./fonts.nix
+          ./locale.nix
+          ./machines/apotheon/hardware-configuration.nix
+          ./machines/apotheon/host.nix
+          ./ollama.nix
+          ./programs.nix
+          ./sound.nix
+          ./ssh.nix
+          ./users/nett00n.nix
+          ./virtualisation.nix
+          ./X11.nix
+        ];
       };
     };
 }

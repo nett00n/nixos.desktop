@@ -1,7 +1,7 @@
 { config, pkgs, ... }: {
   fileSystems."/media/Games" = {
     device = "/dev/mapper/vg0-games";
-    options = [ "bind" "nofail" ];
+    options = [ "defaults" "nofail" ];
             fsType = "xfs";
   };
   fileSystems."/Games" = {

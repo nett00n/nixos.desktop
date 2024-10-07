@@ -28,4 +28,6 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  system.stateVersion = "24.11";
 }

@@ -8,7 +8,7 @@
 
   users.users.nett00n.packages = with pkgs; [
     nmap
-    pkgs.gnome3.gnome-tweaks
+    gnome-tweaks
     pwgen
     python3
     python311Packages.pip
