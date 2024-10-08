@@ -4,4 +4,5 @@
 
 {
   networking.hostName = "reka";
+  system.stateVersion = "24.11";
 }

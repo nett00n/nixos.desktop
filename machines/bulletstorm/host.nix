@@ -4,4 +4,5 @@
 
 {
   networking.hostName = "bulletstorm";
+  system.stateVersion = "24.05";
 }
