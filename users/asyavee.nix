@@ -14,5 +14,6 @@
   users.users.asyavee.packages = with pkgs;
     [
       # postman
+      adapta-backgrounds
     ];
 }

@@ -24,6 +24,11 @@
     flatpak
     git
     gnome-software
+    gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.clipboard-history
+    gnomeExtensions.muteunmute
+    gnomeExtensions.quick-settings-audio-panel
     gparted
     mc
     ncdu
