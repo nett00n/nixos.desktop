@@ -8,5 +8,5 @@
       [ "docker" "kvm" "networkmanager" "ssh-users" "wheel" "gamemode" "sudo" ];
     uid = 1002;
   };
-  users.users.asyavee.packages = with pkgs; [ postman ];
+  users.users.wildetahorg.packages = with pkgs; [ postman ];
 }

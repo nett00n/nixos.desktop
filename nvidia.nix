@@ -11,5 +11,6 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia-container-toolkit.enable = true;
-  hardware.graphics.enable32Bit = true;
+  hardware.enableRedistributableFirmware = true;  # Ensures firmware for GPU is available
+  hardware.opengl.enable = true;  # If OpenGL support is required
 }

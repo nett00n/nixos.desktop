@@ -18,7 +18,7 @@
     eza
     gh
     glab
-    gnome-tweaks
+    gnome.gnome-tweaks
     go
     hyfetch
     imagemagick
@@ -45,7 +45,6 @@
     tflint
     thunderbird
     tmux
-    viddy
     viddy
     vlc
     vscode

@@ -2,11 +2,12 @@
 
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.05";
   inputs.disko.url = "github:nix-community/disko";
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
   inputs.nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-  outputs = { nixpkgs, disko, nixos-facter-modules, ... }: {
+  outputs = { nixpkgs, nixpkgs-stable, disko, nixos-facter-modules, ... }: {
     nixosConfigurations.reka = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -33,7 +34,8 @@
         disko.nixosModules.disko
       ];
     };
-    nixosConfigurations.bulletstorm = nixpkgs.lib.nixosSystem {
+
+    nixosConfigurations.bulletstorm = nixpkgs-stable.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./boot.nix
@@ -59,6 +61,7 @@
         disko.nixosModules.disko
       ];
     };
+
     nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
