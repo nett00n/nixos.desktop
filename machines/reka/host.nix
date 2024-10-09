@@ -4,4 +4,5 @@
 
 {
   networking.hostName = "reka";
+services.xserver.displayManager.gdm.wayland = false;
 }
