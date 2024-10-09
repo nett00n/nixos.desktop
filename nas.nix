@@ -1,88 +1,34 @@
-# nas.nix
+{ config, pkgs, ... }:
 
 {
-  fileSystems = let
-    contentPath = "/media/Content";
-    gamesPath = "/media/Games";
-  in {
-    "/media/Content" = {
-      device = "/dev/disk/by-partuuid/7e0d7518-14b6-481c-acae-0499ab73284e";
-      fsType = "xfs";
-      options = [ "defaults" "nofail" ];
-    };
-    "/media/Games" = {
-      device = "/dev/mapper/vg0-games";
-      fsType = "xfs";
-      options = [ "defaults" "nofail" ];
-    };
-    "/Books" = {
-      device = "${contentPath}/Books/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Comics" = {
-      device = "${contentPath}/Comics/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Courses" = {
-      device = "${contentPath}/Videos/Courses/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Cinema" = {
-      device = "${contentPath}/Videos/Cinema/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Downloads" = {
-      device = "${contentPath}/Downloads/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Games" = {
-      device = "${gamesPath}";
-      options = [ "bind" "nofail" ];
-    };
-    "/Music" = {
-      device = "${contentPath}/Music/";
-      options = [ "bind" "nofail" ];
-    };
-    "/Series" = {
-      device = "${contentPath}/Videos/Series/";
-      options = [ "bind" "nofail" ];
-    };
-  };
+  environment.etc."nas-init.sh".text = ''
+    #!${pkgs.bash}/bin/bash
+    Directories="
+      /Cinema
+      /Downloads
+      /Series
+      /Books
+      /Music
+      "
+    for CurrentDirectory in $Directories; do
+      mkdir -p "$CurrentDirectory"
+      chown 1000:users "$CurrentDirectory"
+      chmod 0775 "$CurrentDirectory"
+    done
+  '';
 
-  services.samba = {
-    enable = true;
-    securityType = "user";
-    openFirewall = true;
-    extraConfig = ''
-      workgroup = WORKGROUP
-      server string = smbnix
-      netbios name = smbnix
-      security = user
-      #use sendfile = yes
-      #max protocol = smb2
-      # note: localhost is the ipv6 localhost ::1
-      hosts allow = 192.168.0. 127.0.0.1 localhost
-      hosts deny = 0.0.0.0/0
-      guest account = nobody
-      map to guest = bad user
-    '';
-    shares = {
-      public = {
-        path = "/Downloads";
-        browseable = "yes";
-        "read only" = "no";
-        "guest ok" = "no ";
-        "create mask" = "0664";
-        "directory mask" = "0775";
-        "force user" = "nett00n";
-        "force group" = "users";
-      };
+  environment.etc."nas-init.sh".mode = "755";  # Ensure the script is executable
+
+  systemd.services.nas-init = {
+    description = "Create basic directories";
+    after = [ "network.target" ];
+
+    serviceConfig = {
+      ExecStart = "/etc/nas-init.sh";
+      Type = "oneshot";
+      RemainAfterExit = true;
     };
-  };
 
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
+    wantedBy = [ "multi-user.target" ];
   };
-
 }

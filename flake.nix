@@ -20,6 +20,7 @@
         ./locale.nix
         ./machines/reka/hardware-configuration.nix
         ./machines/reka/host.nix
+        ./nas.nix
         ./nvidia.nix
         ./ollama.nix
         ./prevent-sleep.nix
