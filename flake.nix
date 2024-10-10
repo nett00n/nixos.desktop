@@ -63,7 +63,7 @@
       ];
     };
 
-    nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.apotheon = nixpkgs-stable.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./boot.nix
@@ -74,9 +74,7 @@
         ./locale.nix
         ./machines/apotheon/hardware-configuration.nix
         ./machines/apotheon/host.nix
-        ./ollama.nix
         ./programs.nix
-        ./qemu.nix
         ./sound.nix
         ./ssh.nix
         ./touchpad.nix
