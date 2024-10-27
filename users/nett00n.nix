@@ -13,6 +13,7 @@
     act
     alacritty
     awscli2
+    dasel
     dbeaver-bin
     dmidecode
     eza
@@ -34,6 +35,7 @@
     nvtopPackages.full
     obsidian
     ocs-url
+    pre-commit
     pwgen
     python311Packages.virtualenv
     sassc
@@ -52,9 +54,9 @@
     xsel
     yamlfmt
     yamllint
+    yazi
     yt-dlp
     zoom-us
     zoxide
-    yazi
   ];
 }
