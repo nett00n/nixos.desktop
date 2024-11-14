@@ -27,6 +27,7 @@
     keystore-explorer
     kitty
     ksnip
+    libnotify
     libreoffice
     libwebp
     meld
