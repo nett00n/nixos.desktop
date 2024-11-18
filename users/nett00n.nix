@@ -28,7 +28,6 @@
     kitty
     ksnip
     libnotify
-    libreoffice
     libwebp
     meld
     nixfmt-classic
@@ -36,6 +35,7 @@
     nvtopPackages.full
     obsidian
     ocs-url
+    onlyoffice-bin
     pre-commit
     pwgen
     python311Packages.virtualenv

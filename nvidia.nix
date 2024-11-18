@@ -11,6 +11,7 @@
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia-container-toolkit.enable = true;
-  hardware.enableRedistributableFirmware = true;  # Ensures firmware for GPU is available
-  hardware.opengl.enable = true;  # If OpenGL support is required
+  hardware.enableRedistributableFirmware =
+    true; # Ensures firmware for GPU is available
+  hardware.opengl.enable = true; # If OpenGL support is required
 }

@@ -16,7 +16,8 @@
     done
   '';
 
-  environment.etc."docker-directories-create.sh".mode = "755";  # Ensure the script is executable
+  environment.etc."docker-directories-create.sh".mode =
+    "755"; # Ensure the script is executable
 
   systemd.services.docker-directories-create = {
     description = "Create basic directories";

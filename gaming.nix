@@ -12,6 +12,12 @@
   };
   programs.steam.gamescopeSession.enable = true;
   programs.java.enable = true;
-  environment.systemPackages = with pkgs; [ lutris mangohud protonup-qt heroic gogdl];
+  environment.systemPackages = with pkgs; [
+    lutris
+    mangohud
+    protonup-qt
+    heroic
+    gogdl
+  ];
   programs.gamemode.enable = true;
 }

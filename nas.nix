@@ -17,7 +17,7 @@
     done
   '';
 
-  environment.etc."nas-init.sh".mode = "755";  # Ensure the script is executable
+  environment.etc."nas-init.sh".mode = "755"; # Ensure the script is executable
 
   systemd.services.nas-init = {
     description = "Create basic directories";

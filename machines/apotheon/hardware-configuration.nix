@@ -24,7 +24,7 @@
     "i915.fastboot=1" # Enable fast boot
     "i915.enable_fbc=1" # Enable Frame Buffer Compression
   ];
-    hardware.opengl.enable = true;
+  hardware.opengl.enable = true;
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/c74cb2fd-fa58-4483-9d6a-e5431cfb2fd6";
