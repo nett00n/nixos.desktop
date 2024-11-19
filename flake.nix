@@ -44,7 +44,6 @@
         ./docker-directories-create.nix
         ./docker.nix
         ./fonts.nix
-        ./gaming.nix
         ./locale.nix
         ./machines/bulletstorm/hardware-configuration.nix
         ./machines/bulletstorm/host.nix
@@ -52,7 +51,6 @@
         ./nvidia.nix
         ./ollama.nix
         ./programs.nix
-        ./qemu.nix
         ./sound.nix
         ./ssh.nix
         ./users/asyavee.nix

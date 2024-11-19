@@ -13,6 +13,7 @@
     act
     alacritty
     awscli2
+    conky
     dasel
     dbeaver-bin
     dmidecode
