@@ -41,8 +41,6 @@ repos:
         always_run: true
       - id: pretty-format-json
         always_run: true
-      - id: trailing-whitespace
-        always_run: true
       - files: docker-compose.yml
         id: sort-simple-yaml
         always_run: true
