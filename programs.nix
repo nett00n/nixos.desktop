@@ -20,6 +20,7 @@
     cudatoolkit
     dig
     docker
+    fdupes
     firefox-bin
     flatpak
     git
