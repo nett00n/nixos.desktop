@@ -15,5 +15,6 @@
     [
       # postman
       adapta-backgrounds
+      localsend
     ];
 }

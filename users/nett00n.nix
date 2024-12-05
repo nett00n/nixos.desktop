@@ -30,6 +30,7 @@
     ksnip
     libnotify
     libwebp
+    localsend
     meld
     nixfmt-classic
     nmap
