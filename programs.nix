@@ -37,7 +37,6 @@
     nix-index
     nix-ld
     nixpkgs-fmt
-    nvidia-container-toolkit
     pciutils
     unzip
     usbutils

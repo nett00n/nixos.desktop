@@ -11,10 +11,9 @@
       [ "docker" "kvm" "networkmanager" "ssh-users" "wheel" "gamemode" "sudo" ];
     uid = 1003;
   };
-  users.users.asyavee.packages = with pkgs;
-    [
-      # postman
-      adapta-backgrounds
-      localsend
-    ];
+  users.users.asyavee.packages = with pkgs; [
+    # postman
+    adapta-backgrounds
+    localsend
+  ];
 }

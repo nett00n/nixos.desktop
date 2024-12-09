@@ -34,10 +34,10 @@
 
   systemd.services.fdupesService = {
     description = "Run fdupes to find and delete duplicate files";
-    serviceConfig.ExecStart = "${pkgs.fdupes}/bin/fdupes -rnNH /Books/ /Cinema/ /Downloads/ /Music/ /Series/";
+    serviceConfig.ExecStart =
+      "${pkgs.fdupes}/bin/fdupes -rnNH /Books/ /Cinema/ /Downloads/ /Music/ /Series/";
     wantedBy = [ "multi-user.target" ];
   };
-
 
   systemd.timers.fdupesTimer = {
     description = "Run fdupes every day at 3 AM";

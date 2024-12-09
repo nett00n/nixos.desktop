@@ -1,7 +1,7 @@
 # flake.nix
 
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
   inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.05";
   inputs.disko.url = "github:nix-community/disko";
   inputs.disko.inputs.nixpkgs.follows = "nixpkgs";

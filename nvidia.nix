@@ -1,6 +1,6 @@
 # nvidia.nix
 
-{ config, ... }: {
+{ config, pkgs, ... }: {
   hardware.nvidia = {
     modesetting.enable = true;
     powerManagement.enable = false;
@@ -10,8 +10,7 @@
     package = config.boot.kernelPackages.nvidiaPackages.production;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia-container-toolkit.enable = true;
-  hardware.enableRedistributableFirmware =
-    true; # Ensures firmware for GPU is available
-  hardware.opengl.enable = true; # If OpenGL support is required
+  hardware.enableRedistributableFirmware = true;
+  virtualisation.docker.enableNvidia = true;
+  environment.systemPackages = with pkgs; [ pkgs.nvidia-docker ];
 }
