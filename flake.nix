@@ -36,7 +36,7 @@
       ];
     };
 
-    nixosConfigurations.bulletstorm = nixpkgs-stable.lib.nixosSystem {
+    nixosConfigurations.bulletstorm = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./boot.nix
@@ -61,7 +61,7 @@
       ];
     };
 
-    nixosConfigurations.apotheon = nixpkgs-stable.lib.nixosSystem {
+    nixosConfigurations.apotheon = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./boot.nix
