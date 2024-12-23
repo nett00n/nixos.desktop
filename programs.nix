@@ -24,7 +24,7 @@
     firefox-bin
     flatpak
     git
-    gnome.gnome-software
+    gnome-software
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.blur-my-shell
     gnomeExtensions.clipboard-history
@@ -50,10 +50,10 @@
     epiphany
     gnome-console
     gnome-tour
-    gnome.geary
-    gnome.gnome-backgrounds
-    gnome.gnome-maps
-    gnome.gnome-music
+    geary
+    gnome-backgrounds
+    gnome-maps
+    gnome-music
   ];
 
 }

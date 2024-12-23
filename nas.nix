@@ -1,19 +1,29 @@
+# nas.nix
+
 { config, pkgs, ... }:
 
 {
   environment.etc."nas-init.sh".text = ''
     #!${pkgs.bash}/bin/bash
-    Directories="
-      /Cinema
-      /Downloads
-      /Series
-      /Books
-      /Music
-      "
-    for CurrentDirectory in $Directories; do
+
+    # Loop over the passed directories and create them
+    for CurrentDirectory in "$@"; do
       mkdir -p "$CurrentDirectory"
       chown 1000:users "$CurrentDirectory"
       chmod 0775 "$CurrentDirectory"
+    done
+
+    find /Stacks -maxdepth 2 -name "docker-compose.yml" | sort | uniq | while read compose_file; do
+      # Go to the directory of the compose file
+      dir=$(dirname "$compose_file")
+      cd "$dir" || exit 1
+
+      # Run docker-compose up -d
+      echo "Running docker-compose up -d in $dir"
+      ${pkgs.docker}/bin/docker-compose up -d
+
+      # Go back to the original directory
+      cd - || exit 1
     done
   '';
 
@@ -24,7 +34,8 @@
     after = [ "network.target" ];
 
     serviceConfig = {
-      ExecStart = "/etc/nas-init.sh";
+      # Pass the list of directories to the script as arguments
+      ExecStart = "/etc/nas-init.sh /Cinema /Downloads /Series /Books /Music";
       Type = "oneshot";
       RemainAfterExit = true;
     };

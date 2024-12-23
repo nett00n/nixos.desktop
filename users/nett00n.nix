@@ -20,7 +20,7 @@
     eza
     gh
     glab
-    gnome.gnome-tweaks
+    gnome-tweaks
     go
     hyfetch
     imagemagick
