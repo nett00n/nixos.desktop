@@ -18,9 +18,9 @@
       dir=$(dirname "$compose_file")
       cd "$dir" || exit 1
 
-      # Run docker-compose up -d
-      echo "Running docker-compose up -d in $dir"
-      ${pkgs.docker}/bin/docker-compose up -d
+      # Run docker compose up -d
+      echo "Running docker compose up -d in $dir"
+      ${pkgs.docker}/bin/docker compose up -d
 
       # Go back to the original directory
       cd - || exit 1

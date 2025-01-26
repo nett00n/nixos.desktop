@@ -19,7 +19,6 @@
     appimage-run
     cudatoolkit
     dig
-    docker
     fdupes
     firefox-bin
     flatpak
