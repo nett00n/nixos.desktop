@@ -17,7 +17,6 @@
     dasel
     dbeaver-bin
     dmidecode
-    eza
     gh
     glab
     gnome-tweaks
@@ -37,11 +36,9 @@
     nvtopPackages.full
     obsidian
     ocs-url
-    onlyoffice-bin
     pre-commit
     pwgen
     python311Packages.virtualenv
-    sassc
     slack
     spotdl
     starship
@@ -57,9 +54,7 @@
     xsel
     yamlfmt
     yamllint
-    yazi
     yt-dlp
     zoom-us
-    zoxide
   ];
 }
