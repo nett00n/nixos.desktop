@@ -11,11 +11,9 @@
 
   users.users.nett00n.packages = with pkgs; [
     act
-    alacritty
     awscli2
     conky
     dasel
-    dbeaver-bin
     dmidecode
     gh
     glab
@@ -34,13 +32,10 @@
     nixfmt-classic
     nmap
     nvtopPackages.full
-    obsidian
-    ocs-url
     pre-commit
     pwgen
+    python311Packages.pip
     python311Packages.virtualenv
-    slack
-    spotdl
     starship
     tdesktop
     terraform
@@ -48,13 +43,11 @@
     thunderbird
     tmux
     viddy
-    vlc
     vscode
     whois
     xsel
     yamlfmt
     yamllint
     yt-dlp
-    zoom-us
   ];
 }

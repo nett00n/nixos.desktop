@@ -69,6 +69,7 @@
         ./docker-directories-create.nix
         ./docker.nix
         ./fonts.nix
+        ./hyprland.nix
         ./locale.nix
         ./machines/apotheon/hardware-configuration.nix
         ./machines/apotheon/host.nix

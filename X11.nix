@@ -4,7 +4,10 @@
   services = {
     xserver = {
       enable = true;
-      displayManager = { gdm.enable = true; };
+      displayManager = {
+        gdm.enable = false;
+        lightdm.enable = true;
+        };
       desktopManager.gnome.enable = true;
       xkb = {
         layout = "us";

@@ -2,7 +2,6 @@
 
 { pkgs, ... }: {
   services.flatpak.enable = true;
-  programs.nix-ld.enable = true;
 
   # Turn on appimage support
   boot.binfmt.registrations.appimage = {
@@ -34,15 +33,15 @@
     ncdu
     neovim
     nix-index
-    nix-ld
     nixpkgs-fmt
+    ocs-url
     pciutils
     unzip
     usbutils
-    virt-manager
     xclip
     xdg-desktop-portal-gtk
     zip
+    distrobox
   ];
   # Exclude packages
   environment.gnome.excludePackages = with pkgs; [
