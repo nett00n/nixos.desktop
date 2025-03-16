@@ -12,12 +12,14 @@
     mask = "\\xff\\xff\\xff\\xff\\x00\\x00\\x00\\x00\\xff\\xff\\xff";
     magicOrExtension = "\\x7fELF....AI\\x02";
   };
+programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     appimage-run
     cudatoolkit
     dig
+    distrobox
     fdupes
     firefox-bin
     flatpak
@@ -33,6 +35,7 @@
     ncdu
     neovim
     nix-index
+    nix-ld
     nixpkgs-fmt
     ocs-url
     pciutils
@@ -41,7 +44,6 @@
     xclip
     xdg-desktop-portal-gtk
     zip
-    distrobox
   ];
   # Exclude packages
   environment.gnome.excludePackages = with pkgs; [

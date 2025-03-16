@@ -1,6 +1,6 @@
 # boot.nix
 
-{
+{ pkgs, ... }:{
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -19,6 +19,17 @@
       efi.efiSysMountPoint = "/boot";
       timeout = 3;
     };
+    plymouth = {
+      enable = true;
+      theme = "hexa_retro";
+      themePackages = with pkgs; [
+
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "hexa_retro" ];
+        })
+      ];
+    };
   };
   systemd.services = {
     "getty@tty1".enable = false;
@@ -29,4 +40,5 @@
   systemd.extraConfig = ''
     DefaultTimeoutStopSec=10s
   '';
+
 }

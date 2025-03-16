@@ -32,6 +32,7 @@
         ./users/nett00n.nix
         ./users/wildetahorg.nix
         ./X11.nix
+        ./hyprland.nix
         disko.nixosModules.disko
       ];
     };
