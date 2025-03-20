@@ -16,6 +16,7 @@
     dasel
     dmidecode
     gh
+    gitlab-ci-local
     glab
     gnome-tweaks
     go
