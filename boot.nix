@@ -1,6 +1,6 @@
 # boot.nix
 
-{ pkgs, ... }:{
+{ pkgs, ... }: {
   boot = {
     consoleLogLevel = 0;
     initrd.verbose = false;
@@ -22,13 +22,14 @@
     plymouth = {
       enable = true;
       theme = "hexa_retro";
-      themePackages = with pkgs; [
+      themePackages = with pkgs;
+        [
 
-        # By default we would install all themes
-        (adi1090x-plymouth-themes.override {
-          selected_themes = [ "hexa_retro" ];
-        })
-      ];
+          # By default we would install all themes
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "hexa_retro" ];
+          })
+        ];
     };
   };
   systemd.services = {

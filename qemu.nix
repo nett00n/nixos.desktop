@@ -1,3 +1,5 @@
 # qemu.nix
 
-{ virtualisation.libvirtd.enable = true; }
+{
+  virtualisation.libvirtd.enable = true;
+}
