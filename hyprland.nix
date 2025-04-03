@@ -5,6 +5,7 @@
     xwayland.enable = true;
   };
   environment.systemPackages = with pkgs; [
+    brightnessctl
     hyprcursor
     hypridle
     hyprland-per-window-layout
