@@ -30,6 +30,7 @@
         ./ssh.nix
         ./users/asyavee.nix
         ./users/nett00n.nix
+        ./users/nett00n-packages.nix
         ./users/wildetahorg.nix
         ./X11.nix
         ./hyprland.nix
@@ -56,6 +57,7 @@
         ./ssh.nix
         ./users/asyavee.nix
         ./users/nett00n.nix
+        ./users/nett00n-packages.nix
         ./users/wildetahorg.nix
         ./X11.nix
         disko.nixosModules.disko
@@ -67,13 +69,33 @@
       modules = [
         ./boot.nix
         ./configuration.nix
+        ./fonts.nix
+        ./locale.nix
+        ./machines/apotheon/hardware-configuration.nix
+        ./machines/apotheon/host.nix
+        ./programs.nix
+        ./sound.nix
+        ./ssh.nix
+        ./touchpad.nix
+        ./users/alice.nix
+        ./users/alice-autologin.nix
+        ./users/nett00n.nix
+        ./X11.nix
+        disko.nixosModules.disko
+      ];
+    };
+    nixosConfigurations.snowrunner = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./boot.nix
+        ./configuration.nix
         ./docker-directories-create.nix
         ./docker.nix
         ./fonts.nix
         ./hyprland.nix
         ./locale.nix
-        ./machines/apotheon/hardware-configuration.nix
-        ./machines/apotheon/host.nix
+        ./machines/snowrunner/hardware-configuration.nix
+        ./machines/snowrunner/host.nix
         ./programs.nix
         ./sound.nix
         ./ssh.nix
