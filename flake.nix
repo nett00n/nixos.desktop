@@ -2,12 +2,8 @@
 
 {
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-24.11";
-  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.05";
-  inputs.disko.url = "github:nix-community/disko";
-  inputs.disko.inputs.nixpkgs.follows = "nixpkgs";
-  inputs.nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
-  outputs = { nixpkgs, nixpkgs-stable, disko, nixos-facter-modules, ... }: {
+  outputs = { nixpkgs, ... }: {
     nixosConfigurations.reka = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -34,7 +30,6 @@
         ./users/wildetahorg.nix
         ./X11.nix
         ./hyprland.nix
-        disko.nixosModules.disko
       ];
     };
 
@@ -60,7 +55,6 @@
         ./users/nett00n-packages.nix
         ./users/wildetahorg.nix
         ./X11.nix
-        disko.nixosModules.disko
       ];
     };
 
@@ -81,7 +75,6 @@
         ./users/alice-autologin.nix
         ./users/nett00n.nix
         ./X11.nix
-        disko.nixosModules.disko
       ];
     };
     nixosConfigurations.snowrunner = nixpkgs.lib.nixosSystem {
@@ -101,8 +94,8 @@
         ./ssh.nix
         ./touchpad.nix
         ./users/nett00n.nix
+        ./users/nett00n-packages.nix
         ./X11.nix
-        disko.nixosModules.disko
       ];
     };
   };

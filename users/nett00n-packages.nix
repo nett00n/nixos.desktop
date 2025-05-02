@@ -2,13 +2,15 @@
 { config, pkgs, ... }: {
   users.users.nett00n.packages = with pkgs; [
     act
+    ansible
     awscli2
+    btop
     dasel
     dmidecode
+    fastfetch
     gh
     gitlab-ci-local
     glab
-    hyfetch
     imagemagick
     junction
     keystore-explorer
